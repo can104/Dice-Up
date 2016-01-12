@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     var user: User!
     
     // MARK: Lifecycle methods
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
