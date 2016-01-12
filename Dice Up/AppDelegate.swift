@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseUI
 import FBSDKCoreKit
 import ParseFacebookUtilsV4
 
@@ -23,9 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.enableLocalDatastore()
         Parse.setApplicationId("mf6JHQQj6dJ17U4YHbxqSpe6d7utmRMVjlRBGHv1", clientKey: "Tk5VXTomnH2ilX4C2yMXFeyyN4jpcLYbSX2HhQM1")
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
-        
-        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-
         
         return true
     }

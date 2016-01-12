@@ -15,16 +15,24 @@ import ParseFacebookUtilsV4
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var nameTextField: UITextField!
-    
     // Properties
     let permissions = ["public_profile", "user_friends"]
     var alert: UIAlertController!
-    var user: User!
+    var modelUser: User!
     var pictureView: FBSDKProfilePictureView!
 
     // MARK: Lifecycle methods
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+         if (PFUser.currentUser() != nil || FBSDKAccessToken.currentAccessToken() != nil) {
+            
+            // If logging in is successful, get Facebook profile information
+            getFacebookInfo()
+            
+        }
+    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -35,14 +43,24 @@ class ViewController: UIViewController {
             // Show Login Screen from ParseUI
             presentLoginScreen()
             
-        } else {
-            getFacebookInfo()
         }
     }
-    
-    
-    
     // Here comes the login screen with just a few lines of code
+    
+    func presentLoginScreen() {
+        let loginViewController = PFLogInViewController()
+        loginViewController
+        loginViewController.facebookPermissions = permissions
+        loginViewController.delegate = self
+        loginViewController.fields = [.UsernameAndPassword, .LogInButton, .PasswordForgotten, .SignUpButton, .Facebook]
+        loginViewController.emailAsUsername = true
+        loginViewController.signUpController?.delegate = self
+        
+        self.presentViewController(loginViewController, animated: false, completion: nil)
+    }
+    
+    // Get Facebook Profile information by Graph API
+    
     func getFacebookInfo() {
         let fbRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, first_name, last_name"])
         
@@ -52,41 +70,32 @@ class ViewController: UIViewController {
             if let fbData = result as? NSDictionary {
                 
                 // Assign the dictionary values to model properties
-                self.user = User(JSON: fbData)
+                self.modelUser = User(JSON: fbData)
                 
-                self.nameTextField.text = "\(self.user.name) \(self.user.surname)"
+                // Assign Facebook profile picture 
                 
-                if self.nameTextField.text != nil {
-                    self.nameTextField.userInteractionEnabled = false
-                }
-                
-                self.getProfilePicture(profileId: self.user.profileId)
+                self.getProfilePicture(profileId: self.modelUser.profileId)
                 
             } else {
                 print(error.localizedDescription)
             }
         }
     }
+
+    // Get Facebook Profile Picture and place it on the screen
     
     func getProfilePicture(profileId id: String) {
         pictureView = FBSDKProfilePictureView(frame: CGRect(x: self.view.bounds.width/2 - 50, y: 50, width: 100, height: 100))
-        
         pictureView.profileID = id
         pictureView.pictureMode = .Square
         
         view.addSubview(pictureView)
-    }
-    
-    func presentLoginScreen() {
-        let loginViewController = PFLogInViewController()
         
-        loginViewController.facebookPermissions = permissions
-        loginViewController.delegate = self
-        loginViewController.fields = [.UsernameAndPassword, .LogInButton, .PasswordForgotten, .SignUpButton, .Facebook]
-        loginViewController.emailAsUsername = true
-        loginViewController.signUpController?.delegate = self
+        UIGraphicsBeginImageContextWithOptions(pictureView.bounds.size, true, 0)
+        pictureView.drawViewHierarchyInRect(pictureView.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
         
-        self.presentViewController(loginViewController, animated: false, completion: nil)
     }
 }
 
@@ -96,13 +105,13 @@ extension ViewController: PFLogInViewControllerDelegate {
     
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
         self.dismissViewControllerAnimated(true, completion: nil)
-        // Logged in
     }
 }
 
 extension ViewController: PFSignUpViewControllerDelegate {
     
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+        
         self.dismissViewControllerAnimated(true) { [unowned self] _ in
             self.alert = UIAlertController(title: "Welcome!", message: "You have successfully signed up.", preferredStyle: .Alert)
             
@@ -112,8 +121,5 @@ extension ViewController: PFSignUpViewControllerDelegate {
             
             self.presentViewController(self.alert, animated: true, completion: nil)
         }
-        // Signed up
-        
-        
     }
 }

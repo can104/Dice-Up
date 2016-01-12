@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6E9AFC6B1C4559F80005675F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AFC6A1C4559F80005675F /* User.swift */; };
+		6EC751E21C45AAE5004F252D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC751E11C45AAE5004F252D /* ProfileViewController.swift */; };
+		6EC751E41C45ACA6004F252D /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC751E31C45ACA6004F252D /* DiscoverViewController.swift */; };
+		6EC751E61C45B5E8004F252D /* DiscoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC751E51C45B5E8004F252D /* DiscoverCell.swift */; };
+		6EC751E81C45B7EF004F252D /* placeholderImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6EC751E71C45B7EF004F252D /* placeholderImage.jpg */; };
 		6EFB13971C44741500BC56BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFB13961C44741500BC56BD /* AppDelegate.swift */; };
 		6EFB13991C44741500BC56BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFB13981C44741500BC56BD /* ViewController.swift */; };
 		6EFB139C1C44741500BC56BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFB139A1C44741500BC56BD /* Main.storyboard */; };
@@ -20,6 +24,10 @@
 		561DF2D073FA00B243D5BCCD /* Pods-Dice Up.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dice Up.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dice Up/Pods-Dice Up.release.xcconfig"; sourceTree = "<group>"; };
 		6A3605756E4A883DDFCFC77A /* Pods-Dice Up.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dice Up.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dice Up/Pods-Dice Up.debug.xcconfig"; sourceTree = "<group>"; };
 		6E9AFC6A1C4559F80005675F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6EC751E11C45AAE5004F252D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6EC751E31C45ACA6004F252D /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		6EC751E51C45B5E8004F252D /* DiscoverCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverCell.swift; sourceTree = "<group>"; };
+		6EC751E71C45B7EF004F252D /* placeholderImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholderImage.jpg; sourceTree = "<group>"; };
 		6EFB13931C44741500BC56BD /* Dice Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dice Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFB13961C44741500BC56BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EFB13981C44741500BC56BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +86,10 @@
 				6EFB139D1C44741500BC56BD /* Assets.xcassets */,
 				6EFB139F1C44741500BC56BD /* LaunchScreen.storyboard */,
 				6EFB13A21C44741500BC56BD /* Info.plist */,
+				6EC751E11C45AAE5004F252D /* ProfileViewController.swift */,
+				6EC751E31C45ACA6004F252D /* DiscoverViewController.swift */,
+				6EC751E51C45B5E8004F252D /* DiscoverCell.swift */,
+				6EC751E71C45B7EF004F252D /* placeholderImage.jpg */,
 			);
 			path = "Dice Up";
 			sourceTree = "<group>";
@@ -154,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EFB13A11C44741500BC56BD /* LaunchScreen.storyboard in Resources */,
+				6EC751E81C45B7EF004F252D /* placeholderImage.jpg in Resources */,
 				6EFB139E1C44741500BC56BD /* Assets.xcassets in Resources */,
 				6EFB139C1C44741500BC56BD /* Main.storyboard in Resources */,
 			);
@@ -216,7 +229,10 @@
 			files = (
 				6EFB13991C44741500BC56BD /* ViewController.swift in Sources */,
 				6EFB13971C44741500BC56BD /* AppDelegate.swift in Sources */,
+				6EC751E21C45AAE5004F252D /* ProfileViewController.swift in Sources */,
 				6E9AFC6B1C4559F80005675F /* User.swift in Sources */,
+				6EC751E61C45B5E8004F252D /* DiscoverCell.swift in Sources */,
+				6EC751E41C45ACA6004F252D /* DiscoverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
