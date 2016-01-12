@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     let permissions = ["public_profile", "user_friends"]
     var alert: UIAlertController!
     var user: User!
-    
+    var pictureView: FBSDKProfilePictureView!
     // MARK: Lifecycle methods
     
     override func viewDidAppear(animated: Bool) {
@@ -36,6 +36,8 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    
     // Here comes the login screen with just a few lines of code
     func getFacebookInfo() {
         let fbRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, first_name, last_name"])
@@ -48,6 +50,12 @@ class ViewController: UIViewController {
                 // Assign the dictionary values to model properties
                 self.user = User(JSON: fbData)
                 
+                self.pictureView = FBSDKProfilePictureView(frame: CGRect(x: self.view.bounds.width/2 - 50, y: 50, width: 100, height: 100))
+                
+                self.pictureView.profileID = self.user.profileId
+                self.pictureView.pictureMode = .Square
+                
+                self.view.addSubview(self.pictureView)
                 
             } else {
                 print(error.localizedDescription)
