@@ -15,36 +15,39 @@ import ParseFacebookUtilsV4
 
 class ViewController: UIViewController {
     
+    // Properties
     let permissions = ["public_profile", "user_friends"]
     var alert: UIAlertController!
     var user: User!
     
     // MARK: Lifecycle methods
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        if (PFUser.currentUser() == nil) { // No user is logged in
-            presentLoginScreen() // Show Login Screen from ParseUI
+        // No user is logged in
+        if (PFUser.currentUser() == nil || FBSDKAccessToken.currentAccessToken() == nil) {
+            
+            // Show Login Screen from ParseUI
+            presentLoginScreen()
             
         } else {
-            print("Logged in")
             getFacebookInfo()
         }
     }
     
     // Here comes the login screen with just a few lines of code
-    
     func getFacebookInfo() {
-        let fbRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id,name"])
+        let fbRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, first_name, last_name"])
         
-        fbRequest.startWithCompletionHandler { [unowned self] (connection, result, error) -> Void in
-            if error == nil && result != nil {
+        fbRequest.startWithCompletionHandler {(connection, result, error) -> Void in
+            
+            // Obtain the result as NSDictionary
+            if let fbData = result as? NSDictionary {
                 
-                let data = result as! NSDictionary
-                self.user = User(JSON: data)
+                // Assign the dictionary values to model properties
+                self.user = User(JSON: fbData)
                 
-                print(self.user.name)
+                
             } else {
                 print(error.localizedDescription)
             }

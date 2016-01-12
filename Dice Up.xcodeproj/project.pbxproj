@@ -74,10 +74,10 @@
 				6EFB13961C44741500BC56BD /* AppDelegate.swift */,
 				6EFB13981C44741500BC56BD /* ViewController.swift */,
 				6EFB139A1C44741500BC56BD /* Main.storyboard */,
+				6E9AFC6A1C4559F80005675F /* User.swift */,
 				6EFB139D1C44741500BC56BD /* Assets.xcassets */,
 				6EFB139F1C44741500BC56BD /* LaunchScreen.storyboard */,
 				6EFB13A21C44741500BC56BD /* Info.plist */,
-				6E9AFC6A1C4559F80005675F /* User.swift */,
 			);
 			path = "Dice Up";
 			sourceTree = "<group>";

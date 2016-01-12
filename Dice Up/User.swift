@@ -11,11 +11,13 @@ import Foundation
 class User {
     
     var name: String
+    var surname: String
     var email: String?
     
     init(JSON: NSDictionary) {
         
-        name = JSON["name"] as! String
+        name = JSON["first_name"] as! String
+        surname = JSON["last_name"] as! String
         email = JSON["email"] as? String
     }
 }
