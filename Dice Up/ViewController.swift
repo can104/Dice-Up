@@ -15,12 +15,16 @@ import ParseFacebookUtilsV4
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var nameTextField: UITextField!
+    
     // Properties
     let permissions = ["public_profile", "user_friends"]
     var alert: UIAlertController!
     var user: User!
     var pictureView: FBSDKProfilePictureView!
+
     // MARK: Lifecycle methods
+
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -50,17 +54,27 @@ class ViewController: UIViewController {
                 // Assign the dictionary values to model properties
                 self.user = User(JSON: fbData)
                 
-                self.pictureView = FBSDKProfilePictureView(frame: CGRect(x: self.view.bounds.width/2 - 50, y: 50, width: 100, height: 100))
+                self.nameTextField.text = "\(self.user.name) \(self.user.surname)"
                 
-                self.pictureView.profileID = self.user.profileId
-                self.pictureView.pictureMode = .Square
+                if self.nameTextField.text != nil {
+                    self.nameTextField.userInteractionEnabled = false
+                }
                 
-                self.view.addSubview(self.pictureView)
+                self.getProfilePicture(profileId: self.user.profileId)
                 
             } else {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func getProfilePicture(profileId id: String) {
+        pictureView = FBSDKProfilePictureView(frame: CGRect(x: self.view.bounds.width/2 - 50, y: 50, width: 100, height: 100))
+        
+        pictureView.profileID = id
+        pictureView.pictureMode = .Square
+        
+        view.addSubview(pictureView)
     }
     
     func presentLoginScreen() {
