@@ -19,6 +19,8 @@ class ProfileViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign out", style: .Plain, target: self, action: "signoutTapped")
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Message", style: .Plain, target: self, action: "messageTapped")
        
     }
 
@@ -27,6 +29,9 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func messageTapped() {
+        print("message button tapped")
+    }
 
     func signoutTapped() {
         PFUser.logOutInBackgroundWithBlock { (error) -> Void in
