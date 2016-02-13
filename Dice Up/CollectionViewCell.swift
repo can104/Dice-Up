@@ -11,9 +11,9 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
     
     override func layoutSubviews() {
-        imageView.layer.cornerRadius = imageView.bounds.height / 2
-        imageView.clipsToBounds = true
+        imageView.roundImageView()
     }
 }

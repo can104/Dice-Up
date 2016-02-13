@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E8389361C6412440032C4D9 /* car1 in Resources */ = {isa = PBXBuildFile; fileRef = 6E83892C1C6412440032C4D9 /* car1 */; };
+		6E2542B71C6693240079D64C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2542B61C6693240079D64C /* Utils.swift */; };
+		6E807F3A1C66A00E00A54664 /* ProgressHUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E807F391C66A00E00A54664 /* ProgressHUDViewController.swift */; };
 		6E8389371C6412440032C4D9 /* car2 in Resources */ = {isa = PBXBuildFile; fileRef = 6E83892D1C6412440032C4D9 /* car2 */; };
 		6E8389381C6412440032C4D9 /* car3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E83892E1C6412440032C4D9 /* car3 */; };
 		6E8389391C6412440032C4D9 /* car4 in Resources */ = {isa = PBXBuildFile; fileRef = 6E83892F1C6412440032C4D9 /* car4 */; };
@@ -20,8 +21,18 @@
 		6E8389411C6417410032C4D9 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8389401C6417410032C4D9 /* CollectionViewController.swift */; };
 		6E8389431C6417510032C4D9 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8389421C6417510032C4D9 /* CollectionViewCell.swift */; };
 		6E9AFC6B1C4559F80005675F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9AFC6A1C4559F80005675F /* User.swift */; };
+		6E9C42D41C6FEA80002CDD50 /* placeholderImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6E9C42D31C6FEA80002CDD50 /* placeholderImage.jpg */; };
+		6EAD7B471C6920A800752ED5 /* Camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EAD7B461C6920A800752ED5 /* Camera.png */; };
+		6EAD7B4B1C69213F00752ED5 /* car1 in Resources */ = {isa = PBXBuildFile; fileRef = 6EAD7B4A1C69213F00752ED5 /* car1 */; };
+		6EAD7B4E1C692E6B00752ED5 /* UIView+RoundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD7B4D1C692E6B00752ED5 /* UIView+RoundImage.swift */; };
+		6EAD7B531C692F2200752ED5 /* UIImage+NoString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAD7B521C692F2200752ED5 /* UIImage+NoString.swift */; };
+		6EAD7B5C1C69337E00752ED5 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EAD7B5B1C69337E00752ED5 /* Icon-76@2x.png */; };
+		6EB842BD1C67A78B00727799 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB842BC1C67A78B00727799 /* SettingsViewController.swift */; };
+		6EB842BF1C67AF7000727799 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB842BE1C67AF7000727799 /* MessageViewController.swift */; };
+		6EB842C21C67B31900727799 /* MessageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB842C11C67B31900727799 /* MessageViewCell.swift */; };
+		6EB842C41C67BD3800727799 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB842C31C67BD3800727799 /* Data.swift */; };
+		6EB842C61C67C65500727799 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB842C51C67C65500727799 /* TextViewController.swift */; };
 		6EC751E21C45AAE5004F252D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC751E11C45AAE5004F252D /* ProfileViewController.swift */; };
-		6EC751E81C45B7EF004F252D /* placeholderImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6EC751E71C45B7EF004F252D /* placeholderImage.jpg */; };
 		6EFB13971C44741500BC56BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFB13961C44741500BC56BD /* AppDelegate.swift */; };
 		6EFB13991C44741500BC56BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFB13981C44741500BC56BD /* ViewController.swift */; };
 		6EFB139C1C44741500BC56BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EFB139A1C44741500BC56BD /* Main.storyboard */; };
@@ -33,7 +44,8 @@
 /* Begin PBXFileReference section */
 		561DF2D073FA00B243D5BCCD /* Pods-Dice Up.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dice Up.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dice Up/Pods-Dice Up.release.xcconfig"; sourceTree = "<group>"; };
 		6A3605756E4A883DDFCFC77A /* Pods-Dice Up.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dice Up.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dice Up/Pods-Dice Up.debug.xcconfig"; sourceTree = "<group>"; };
-		6E83892C1C6412440032C4D9 /* car1 */ = {isa = PBXFileReference; lastKnownFileType = file; path = car1; sourceTree = "<group>"; };
+		6E2542B61C6693240079D64C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		6E807F391C66A00E00A54664 /* ProgressHUDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUDViewController.swift; sourceTree = "<group>"; };
 		6E83892D1C6412440032C4D9 /* car2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = car2; sourceTree = "<group>"; };
 		6E83892E1C6412440032C4D9 /* car3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = car3; sourceTree = "<group>"; };
 		6E83892F1C6412440032C4D9 /* car4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = car4; sourceTree = "<group>"; };
@@ -46,8 +58,18 @@
 		6E8389401C6417410032C4D9 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		6E8389421C6417510032C4D9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		6E9AFC6A1C4559F80005675F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6E9C42D31C6FEA80002CDD50 /* placeholderImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholderImage.jpg; sourceTree = "<group>"; };
+		6EAD7B461C6920A800752ED5 /* Camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camera.png; sourceTree = "<group>"; };
+		6EAD7B4A1C69213F00752ED5 /* car1 */ = {isa = PBXFileReference; lastKnownFileType = file; path = car1; sourceTree = "<group>"; };
+		6EAD7B4D1C692E6B00752ED5 /* UIView+RoundImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+RoundImage.swift"; sourceTree = "<group>"; };
+		6EAD7B521C692F2200752ED5 /* UIImage+NoString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+NoString.swift"; sourceTree = "<group>"; };
+		6EAD7B5B1C69337E00752ED5 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-76@2x.png"; path = "Assets.xcassets/AppIcon.appiconset/Icon-76@2x.png"; sourceTree = "<group>"; };
+		6EB842BC1C67A78B00727799 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		6EB842BE1C67AF7000727799 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		6EB842C11C67B31900727799 /* MessageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewCell.swift; sourceTree = "<group>"; };
+		6EB842C31C67BD3800727799 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		6EB842C51C67C65500727799 /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		6EC751E11C45AAE5004F252D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		6EC751E71C45B7EF004F252D /* placeholderImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholderImage.jpg; sourceTree = "<group>"; };
 		6EFB13931C44741500BC56BD /* Dice Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dice Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFB13961C44741500BC56BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EFB13981C44741500BC56BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +103,9 @@
 		6E83892B1C6411C40032C4D9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6E83892C1C6412440032C4D9 /* car1 */,
+				6EAD7B461C6920A800752ED5 /* Camera.png */,
+				6EAD7B4A1C69213F00752ED5 /* car1 */,
+				6EAD7B5B1C69337E00752ED5 /* Icon-76@2x.png */,
 				6E83892D1C6412440032C4D9 /* car2 */,
 				6E83892E1C6412440032C4D9 /* car3 */,
 				6E83892F1C6412440032C4D9 /* car4 */,
@@ -94,9 +118,49 @@
 				6EFB139D1C44741500BC56BD /* Assets.xcassets */,
 				6EFB139F1C44741500BC56BD /* LaunchScreen.storyboard */,
 				6EFB13A21C44741500BC56BD /* Info.plist */,
-				6EC751E71C45B7EF004F252D /* placeholderImage.jpg */,
+				6E9C42D31C6FEA80002CDD50 /* placeholderImage.jpg */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6EAD7B4C1C692CE900752ED5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E8389421C6417510032C4D9 /* CollectionViewCell.swift */,
+				6EB842C11C67B31900727799 /* MessageViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		6EAD7B4F1C692ED300752ED5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6EAD7B4D1C692E6B00752ED5 /* UIView+RoundImage.swift */,
+				6EAD7B521C692F2200752ED5 /* UIImage+NoString.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		6EAD7B561C69304500752ED5 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				6EFB13961C44741500BC56BD /* AppDelegate.swift */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		6EB842C01C67AF8100727799 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6EFB13981C44741500BC56BD /* ViewController.swift */,
+				6EC751E11C45AAE5004F252D /* ProfileViewController.swift */,
+				6E8389401C6417410032C4D9 /* CollectionViewController.swift */,
+				6E807F391C66A00E00A54664 /* ProgressHUDViewController.swift */,
+				6EB842BC1C67A78B00727799 /* SettingsViewController.swift */,
+				6EB842BE1C67AF7000727799 /* MessageViewController.swift */,
+				6EB842C51C67C65500727799 /* TextViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		6EFB138A1C44741500BC56BD = {
@@ -120,14 +184,15 @@
 		6EFB13951C44741500BC56BD /* Dice Up */ = {
 			isa = PBXGroup;
 			children = (
-				6EFB13961C44741500BC56BD /* AppDelegate.swift */,
-				6EFB13981C44741500BC56BD /* ViewController.swift */,
-				6EC751E11C45AAE5004F252D /* ProfileViewController.swift */,
 				6EFB139A1C44741500BC56BD /* Main.storyboard */,
-				6E8389401C6417410032C4D9 /* CollectionViewController.swift */,
-				6E8389421C6417510032C4D9 /* CollectionViewCell.swift */,
+				6EAD7B561C69304500752ED5 /* Other */,
 				6E9AFC6A1C4559F80005675F /* User.swift */,
+				6E2542B61C6693240079D64C /* Utils.swift */,
+				6EB842C31C67BD3800727799 /* Data.swift */,
+				6EAD7B4C1C692CE900752ED5 /* Views */,
+				6EB842C01C67AF8100727799 /* Controllers */,
 				6E83892B1C6411C40032C4D9 /* Supporting Files */,
+				6EAD7B4F1C692ED300752ED5 /* Extensions */,
 			);
 			path = "Dice Up";
 			sourceTree = "<group>";
@@ -207,16 +272,18 @@
 				6E83893C1C6412440032C4D9 /* car7 in Resources */,
 				6E8389391C6412440032C4D9 /* car4 in Resources */,
 				6E8389371C6412440032C4D9 /* car2 in Resources */,
+				6EAD7B4B1C69213F00752ED5 /* car1 in Resources */,
 				6E83893E1C6412440032C4D9 /* car9 in Resources */,
+				6EAD7B5C1C69337E00752ED5 /* Icon-76@2x.png in Resources */,
 				6EFB13A11C44741500BC56BD /* LaunchScreen.storyboard in Resources */,
 				6E83893A1C6412440032C4D9 /* car5 in Resources */,
+				6EAD7B471C6920A800752ED5 /* Camera.png in Resources */,
 				6E83893B1C6412440032C4D9 /* car6 in Resources */,
 				6E83893F1C6412440032C4D9 /* car10 in Resources */,
-				6EC751E81C45B7EF004F252D /* placeholderImage.jpg in Resources */,
 				6EFB139E1C44741500BC56BD /* Assets.xcassets in Resources */,
+				6E9C42D41C6FEA80002CDD50 /* placeholderImage.jpg in Resources */,
 				6EFB139C1C44741500BC56BD /* Main.storyboard in Resources */,
 				6E8389381C6412440032C4D9 /* car3 in Resources */,
-				6E8389361C6412440032C4D9 /* car1 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,11 +343,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EFB13991C44741500BC56BD /* ViewController.swift in Sources */,
+				6EAD7B531C692F2200752ED5 /* UIImage+NoString.swift in Sources */,
 				6EFB13971C44741500BC56BD /* AppDelegate.swift in Sources */,
 				6E8389431C6417510032C4D9 /* CollectionViewCell.swift in Sources */,
+				6E2542B71C6693240079D64C /* Utils.swift in Sources */,
+				6EB842BF1C67AF7000727799 /* MessageViewController.swift in Sources */,
 				6EC751E21C45AAE5004F252D /* ProfileViewController.swift in Sources */,
+				6EB842C21C67B31900727799 /* MessageViewCell.swift in Sources */,
+				6EB842C41C67BD3800727799 /* Data.swift in Sources */,
 				6E9AFC6B1C4559F80005675F /* User.swift in Sources */,
+				6EAD7B4E1C692E6B00752ED5 /* UIView+RoundImage.swift in Sources */,
 				6E8389411C6417410032C4D9 /* CollectionViewController.swift in Sources */,
+				6E807F3A1C66A00E00A54664 /* ProgressHUDViewController.swift in Sources */,
+				6EB842BD1C67A78B00727799 /* SettingsViewController.swift in Sources */,
+				6EB842C61C67C65500727799 /* TextViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

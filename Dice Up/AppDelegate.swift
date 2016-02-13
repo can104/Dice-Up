@@ -11,13 +11,19 @@ import Parse
 import ParseUI
 import FBSDKCoreKit
 import ParseFacebookUtilsV4
+import Firebase
+
+var firebaseReference = Firebase(url: "https://dice-up.firebaseio.com/")
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        
         // Override point for customization after application launch.
         
         Parse.enableLocalDatastore()
