@@ -14,16 +14,15 @@
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
-import ParseUI
-import Parse
-import ParseFacebookUtilsV4
 import Firebase
+
 
 class ViewController: UIViewController {
     
     // Properties
     let permissions = ["public_profile", "user_friends"]
     var pictureView: FBSDKProfilePictureView!
+    let loginManager = FBSDKLoginManager()
     
     // MARK: Lifecycle methods
     
@@ -39,7 +38,6 @@ class ViewController: UIViewController {
         }
     }
 
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -55,51 +53,18 @@ class ViewController: UIViewController {
         }
         
     }
-    // Here comes the login screen with just a few lines of code
     
     func presentLoginScreen() {
         
-        let loginViewController = PFLogInViewController()
-        loginViewController.facebookPermissions = permissions
-        loginViewController.delegate = self
-        loginViewController.fields = [.UsernameAndPassword, .LogInButton, .PasswordForgotten, .SignUpButton, .Facebook]
-        loginViewController.emailAsUsername = true
-        loginViewController.signUpController?.delegate = self
-        
-        self.presentViewController(loginViewController, animated: false, completion: nil)
-    }
-
-    // Get Facebook Profile Picture and place it on the screen
-    
-//    func getProfilePicture(profileId id: String) {
-//        pictureView = FBSDKProfilePictureView(frame: CGRect(x: self.view.bounds.width/2 - 50, y: 50, width: 100, height: 100))
-//        pictureView.profileID = id
-//        pictureView.pictureMode = .Square
-//        
-//        view.addSubview(pictureView)
-//        
-//        UIGraphicsBeginImageContextWithOptions(pictureView.bounds.size, true, 0)
-//        pictureView.drawViewHierarchyInRect(pictureView.bounds, afterScreenUpdates: true)
-//        let image = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//    }
-}
-
-// MARK: PFLogin and PFSignup Delegate methods
-
-extension ViewController: PFLogInViewControllerDelegate {
-    
-    func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
-
-        dismissViewControllerAnimated(true, completion: nil)
+        loginManager.logInWithReadPermissions(permissions, fromViewController: self) { result, error in
+            let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
+            
+            firebaseReference.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (error, data) -> Void in
+                if error != nil {
+                    print("Hello! The data is \(data.uid)")
+                }
+            })
+        }
     }
 }
 
-extension ViewController: PFSignUpViewControllerDelegate {
-    
-    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
-
-        
-        Utils.showMessage(self, title: "Welcome!", message: "You have successfully signed up")
-    }
-}

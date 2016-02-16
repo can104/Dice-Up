@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import Parse
 import ParseFacebookUtilsV4
-import ParseUI
+import SVProgressHUD
 
 class ProfileViewController: UIViewController {
 
+    
     @IBOutlet weak var profileView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     var pictureView: FBSDKProfilePictureView!
@@ -21,9 +21,15 @@ class ProfileViewController: UIViewController {
         didSet {
             
             nameLabel.text = "\(modelUser.name) \(modelUser.surname)"
+            let name = "\(modelUser.name) \(modelUser.surname)"
             getProfilePicture()
-            
-            
+//            var firebaseUsers = [NSDictionary]()
+//            let info = ["name": name, "imageURL": "http://graph.facebook.com/\(modelUser.profileId)/picture?type=large"]
+//
+//            firebaseUsers.append(info)
+//
+//            firebaseReference.childByAppendingPath("users").setValue(info)
+
         }
     }
     
@@ -35,6 +41,8 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        SVProgressHUD.setDefaultMaskType(.Black)
+        
         picker.allowsEditing = true
         picker.delegate = self
     }
@@ -60,6 +68,8 @@ class ProfileViewController: UIViewController {
     
     func getProfilePicture() {
             pictureView = FBSDKProfilePictureView(frame: CGRect(x: 85, y: 20, width: 150, height: 150))
+            SVProgressHUD.show()
+        
             pictureView.profileID = "me"
             pictureView.pictureMode = .Square
             pictureView.roundImageView()
