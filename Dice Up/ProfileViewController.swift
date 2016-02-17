@@ -74,6 +74,7 @@ class ProfileViewController: UIViewController {
             pictureView.pictureMode = .Square
             pictureView.roundImageView()
             view.addSubview(pictureView)
+            SVProgressHUD.dismiss()
     }
     
     func getFacebookInfo() {

@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     // Properties
     let permissions = ["public_profile", "user_friends"]
-    var pictureView: FBSDKProfilePictureView!
+
     let loginManager = FBSDKLoginManager()
     
     // MARK: Lifecycle methods
@@ -29,13 +29,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        firebaseReference.createUser("anan@anan.anan", password: "12345678") { (error, result) -> Void in
-            if error == nil {
-                if let uid = result["uid"] as? String {
-                    print(uid)
-                }
-            }
-        }
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -55,16 +48,21 @@ class ViewController: UIViewController {
     }
     
     func presentLoginScreen() {
+
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let loginViewController = storyboard.instantiateViewControllerWithIdentifier("Signup") as! SignupViewController
         
-        loginManager.logInWithReadPermissions(permissions, fromViewController: self) { result, error in
-            let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-            
-            firebaseReference.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (error, data) -> Void in
-                if error != nil {
-                    print("Hello! The data is \(data.uid)")
-                }
-            })
-        }
+        presentViewController(loginViewController, animated: true, completion: nil)
+        
+//        loginManager.logInWithReadPermissions(permissions, fromViewController: self) { result, error in
+//            let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
+//            
+//            firebaseReference.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (error, data) -> Void in
+//                if error != nil {
+//                    print("Hello! The data is \(data.uid)")
+//                }
+//            })
+//        }
     }
 }
 

@@ -9,7 +9,6 @@
 import UIKit
 import Parse
 import ParseFacebookUtilsV4
-import ParseUI
 
 class SettingsViewController: UITableViewController {
 
@@ -33,7 +32,6 @@ class SettingsViewController: UITableViewController {
                     
                 let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
                 let vc = storyboard.instantiateViewControllerWithIdentifier("FirstScreen") as! ViewController
-                    
                 self.presentViewController(vc, animated: true, completion: nil)
                 })
             }
