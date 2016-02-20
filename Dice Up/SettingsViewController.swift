@@ -7,13 +7,13 @@
 //
 
 import UIKit
-import Parse
-import ParseFacebookUtilsV4
+import Firebase
+import FBSDKLoginKit
 
 class SettingsViewController: UITableViewController {
 
     @IBOutlet weak var logoutCell: UITableViewCell!
-    
+    let loginManager = FBSDKLoginManager()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,13 +27,15 @@ class SettingsViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if tableView.cellForRowAtIndexPath(indexPath) == logoutCell {
-                
-            PFUser.logOutInBackgroundWithBlock({ [unowned self] error in
-                    
-                let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-                let vc = storyboard.instantiateViewControllerWithIdentifier("FirstScreen") as! ViewController
-                self.presentViewController(vc, animated: true, completion: nil)
-                })
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let loginViewController = storyboard.instantiateViewControllerWithIdentifier("Signup") as! AuthViewController
+            
+            presentViewController(loginViewController, animated: true, completion: nil)
+            
+            firebaseReference.unauth()
+            loginManager.logOut()
+            
             }
     }
 }

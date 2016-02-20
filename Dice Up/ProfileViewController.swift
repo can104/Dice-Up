@@ -7,29 +7,17 @@
 //
 
 import UIKit
-import ParseFacebookUtilsV4
-import SVProgressHUD
+import FBSDKCoreKit
 
 class ProfileViewController: UIViewController {
 
-    
     @IBOutlet weak var profileView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     var pictureView: FBSDKProfilePictureView!
     let picker = UIImagePickerController()
     var modelUser: User! {
         didSet {
-            
             nameLabel.text = "\(modelUser.name) \(modelUser.surname)"
-            let name = "\(modelUser.name) \(modelUser.surname)"
-            getProfilePicture()
-//            var firebaseUsers = [NSDictionary]()
-//            let info = ["name": name, "imageURL": "http://graph.facebook.com/\(modelUser.profileId)/picture?type=large"]
-//
-//            firebaseUsers.append(info)
-//
-//            firebaseReference.childByAppendingPath("users").setValue(info)
-
         }
     }
     
@@ -40,11 +28,13 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        SVProgressHUD.setDefaultMaskType(.Black)
         
         picker.allowsEditing = true
         picker.delegate = self
+        
+        if profileView.image == nil {
+            getProfilePicture()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -52,13 +42,13 @@ class ProfileViewController: UIViewController {
         
         getFacebookInfo()
         
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,13 +58,11 @@ class ProfileViewController: UIViewController {
     
     func getProfilePicture() {
             pictureView = FBSDKProfilePictureView(frame: CGRect(x: 85, y: 20, width: 150, height: 150))
-            SVProgressHUD.show()
-        
+
             pictureView.profileID = "me"
             pictureView.pictureMode = .Square
             pictureView.roundImageView()
             view.addSubview(pictureView)
-            SVProgressHUD.dismiss()
     }
     
     func getFacebookInfo() {
@@ -99,8 +87,8 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-            profileView.contentMode = .ScaleToFill
-            pictureView = nil
+            profileView.contentMode = .ScaleAspectFit
+            pictureView.removeFromSuperview()
             profileView.image = pickedImage
             profileView.roundImageView()
             

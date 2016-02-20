@@ -9,7 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 
-class SignupViewController: UIViewController {
+class AuthViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -21,9 +21,6 @@ class SignupViewController: UIViewController {
     // If registered is true, the user already has an account. The main button offers
     // the user to login.
     
-    @IBAction func facebookButtonTapped(sender: FBSDKLoginButton) {
-        
-    }
     
     @IBAction func noteButtonTapped(sender: UIButton) {
       
@@ -81,6 +78,17 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
+            let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBar") as! UITabBarController
+            
+            self.presentViewController(tabBarController, animated: false, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {

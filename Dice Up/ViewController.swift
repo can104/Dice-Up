@@ -16,14 +16,8 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 import Firebase
 
-
 class ViewController: UIViewController {
-    
-    // Properties
-    let permissions = ["public_profile", "user_friends"]
 
-    let loginManager = FBSDKLoginManager()
-    
     // MARK: Lifecycle methods
     
     override func viewDidLoad() {
@@ -42,27 +36,19 @@ class ViewController: UIViewController {
             presentViewController(tabBarController, animated: false, completion: nil)
             
         } else {
-            presentLoginScreen()
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let loginViewController = storyboard.instantiateViewControllerWithIdentifier("Signup") as! AuthViewController
+            
+            presentViewController(loginViewController, animated: true, completion: nil)
         }
         
     }
     
-    func presentLoginScreen() {
 
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let loginViewController = storyboard.instantiateViewControllerWithIdentifier("Signup") as! SignupViewController
         
-        presentViewController(loginViewController, animated: true, completion: nil)
         
-//        loginManager.logInWithReadPermissions(permissions, fromViewController: self) { result, error in
-//            let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-//            
-//            firebaseReference.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (error, data) -> Void in
-//                if error != nil {
-//                    print("Hello! The data is \(data.uid)")
-//                }
-//            })
-//        }
-    }
+        
+    
 }
 
