@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import Parse
-import ParseFacebookUtilsV4
-import ParseUI
+import FBSDKCoreKit
 
 class ProfileViewController: UIViewController {
 
@@ -19,11 +17,7 @@ class ProfileViewController: UIViewController {
     let picker = UIImagePickerController()
     var modelUser: User! {
         didSet {
-            
             nameLabel.text = "\(modelUser.name) \(modelUser.surname)"
-            getProfilePicture()
-            
-            
         }
     }
     
@@ -34,9 +28,13 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         picker.allowsEditing = true
         picker.delegate = self
+        
+        if profileView.image == nil {
+            getProfilePicture()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -44,13 +42,13 @@ class ProfileViewController: UIViewController {
         
         getFacebookInfo()
         
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +58,7 @@ class ProfileViewController: UIViewController {
     
     func getProfilePicture() {
             pictureView = FBSDKProfilePictureView(frame: CGRect(x: 85, y: 20, width: 150, height: 150))
+
             pictureView.profileID = "me"
             pictureView.pictureMode = .Square
             pictureView.roundImageView()
@@ -88,8 +87,8 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-            profileView.contentMode = .ScaleToFill
-            pictureView = nil
+            profileView.contentMode = .ScaleAspectFit
+            pictureView.removeFromSuperview()
             profileView.image = pickedImage
             profileView.roundImageView()
             

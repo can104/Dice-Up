@@ -89,9 +89,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Dice Up/FBSDKLoginKit.framework"
   install_framework "Pods-Dice Up/FBSDKShareKit.framework"
   install_framework "Pods-Dice Up/Firebase.framework"
-  install_framework "Pods-Dice Up/Parse.framework"
-  install_framework "Pods-Dice Up/ParseFacebookUtilsV4.framework"
-  install_framework "Pods-Dice Up/ParseUI.framework"
   install_framework "Pods-Dice Up/SVProgressHUD.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -100,8 +97,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Dice Up/FBSDKLoginKit.framework"
   install_framework "Pods-Dice Up/FBSDKShareKit.framework"
   install_framework "Pods-Dice Up/Firebase.framework"
-  install_framework "Pods-Dice Up/Parse.framework"
-  install_framework "Pods-Dice Up/ParseFacebookUtilsV4.framework"
-  install_framework "Pods-Dice Up/ParseUI.framework"
   install_framework "Pods-Dice Up/SVProgressHUD.framework"
 fi

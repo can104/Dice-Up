@@ -5,12 +5,9 @@
 
 target 'Dice Up' do
 
-pod 'FBSDKLoginKit', '~> 4.8'
+pod 'FBSDKLoginKit', '~> 4.10.0'
 pod 'FBSDKCoreKit', '~> 4.9.1'
 pod 'FBSDKShareKit', '~> 4.8'
-pod 'ParseFacebookUtilsV4', '~> 1.11'
-pod 'Parse', '~> 1.12'
-pod 'ParseUI', '~> 1.1'
 pod 'SVProgressHUD', '~> 1.1'
 pod 'Firebase', '>= 2.5.0'
 
